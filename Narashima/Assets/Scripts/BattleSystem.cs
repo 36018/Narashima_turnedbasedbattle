@@ -45,14 +45,12 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
-        enemyUnit.TakeDamage(playerUnit.damage * playerUnit.attackStat, enemyUnit.defenseStat);
+        enemyUnit.TakeDamage(playerUnit.damage, playerUnit.attackStat, enemyUnit.defenseStat);
         //enemyHUD.SetHP(enemyUnit.currentHP);
 
         yield return new WaitForSeconds(2f);
 
-        bool isDead;
-
-        if (isDead)
+        if (enemyUnit.currentHP <= 0)
         {
             state = BattleState.WON;
         }
@@ -60,6 +58,29 @@ public class BattleSystem : MonoBehaviour
         {
             state = BattleState.ENEMYTURN;
             StartCoroutine(EnemyTurn());
+        }
+    }
+
+    IEnumerator EnemyTurn()
+    {
+        //kiezen tussen item of attack of run away
+    }
+
+    IEnumerator EnemyAttack()
+    {
+        playerUnit.TakeDamage(enemyUnit.damage, enemyUnit.attackStat, playerUnit.defenseStat);
+        //enemyHUD.SetHP(enemyUnit.currentHP);
+
+        yield return new WaitForSeconds(2f);
+
+        if (playerUnit.currentHP <= 0)
+        {
+            state = BattleState.LOST;
+        }
+        else
+        {
+            state = BattleState.PLAYERTURN;
+            StartCoroutine(PlayerTurn());
         }
     }
 }
