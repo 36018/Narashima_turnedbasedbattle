@@ -35,17 +35,22 @@ public class BattleSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         state = BattleState.PLAYERTURN;
-        PlayerTurn();
+        //PlayerTurn();
+    }
+
+    IEnumerator PlayerTurn()
+    {
+        //kiezen tussen item of attack of run away
     }
 
     IEnumerator PlayerAttack()
     {
-        bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+        enemyUnit.TakeDamage(playerUnit.damage, playerUnit.attackStat, enemyUnit.defenseStat);
         //enemyHUD.SetHP(enemyUnit.currentHP);
 
         yield return new WaitForSeconds(2f);
 
-        if (isDead)
+        if (enemyUnit.currentHP <= 0)
         {
             state = BattleState.WON;
         }
@@ -58,53 +63,24 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        // attack dialogue
+        //kiezen tussen item of attack of run away
+    }
 
-        //yield return new WaitForSeconds(1f);
+    IEnumerator EnemyAttack()
+    {
+        playerUnit.TakeDamage(enemyUnit.damage, enemyUnit.attackStat, playerUnit.defenseStat);
+        //enemyHUD.SetHP(enemyUnit.currentHP);
 
-        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        yield return new WaitForSeconds(2f);
 
-        if (isDead)
+        if (playerUnit.currentHP <= 0)
         {
             state = BattleState.LOST;
         }
         else
         {
             state = BattleState.PLAYERTURN;
+            StartCoroutine(PlayerTurn());
         }
     }
-
-    IEnumerator PlayerHeal()
-    {
-        playerUnit.Heal(5);
-
-        state = BattleState.ENEMYTURN;
-        StartCoroutine(EnemyTurn());
-    }
-
-
-    public void OnAttackButton()
-    {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-        else
-        {
-            StartCoroutine(PlayerAttack());
-        }
-    }
-
-    public void OnHealButton()
-    {
-        if (state != BattleState.PLAYERTURN)
-        {
-            return;
-        }
-        else
-        {
-            StartCoroutine(PlayerAttack());
-        }
-    }
-
 }
