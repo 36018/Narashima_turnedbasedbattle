@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Done
   m_EditorClassIdentifier: 
   dialogue:
-  - I'm done.
+  - 'Krishna & Hanuman : Laten we gaan.'
   responses:
   - responseText: Okay
     dialogueObject: {fileID: 0}

@@ -4,7 +4,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private DialogueUI dialogueUI;
 
-    private const float MoveSpeed = 10f;
+    private const float MoveSpeed = 5f;
+
 
     public DialogueUI DialogueUI => dialogueUI;
 

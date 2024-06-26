@@ -7,12 +7,16 @@ public class PlayerController : MonoBehaviour
 {
 
     private float horizontal;
-    public float speed = 5f;
+
+    [SerializeField]
+    public float speed = 3f;
+
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,8 @@ public class PlayerController : MonoBehaviour
         horizontal *= speed * Time.deltaTime;
 
         transform.Translate(new Vector3(horizontal, 0f, 0f));
+
+        
 
     }
 }

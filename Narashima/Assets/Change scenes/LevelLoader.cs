@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
     {
         if (other.tag == "LevelExit")
         {
-            Debug.Log("Werkt dit?");
+            //Debug.Log("Werkt dit?");
             SceneManager.LoadScene("Battlesystem");
         }
     }
