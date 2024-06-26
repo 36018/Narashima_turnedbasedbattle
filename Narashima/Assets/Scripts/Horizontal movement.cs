@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,8 +22,6 @@ public class PlayerController : MonoBehaviour
         horizontal *= speed * Time.deltaTime;
 
         transform.Translate(new Vector3(horizontal, 0f, 0f));
-
-
 
     }
 }
