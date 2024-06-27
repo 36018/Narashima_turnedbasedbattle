@@ -20,7 +20,7 @@ public class PlayersController : MonoBehaviour
         movement = new Vector2 (Input.GetAxis("Horizontal"), 0).normalized;
         animator.SetFloat("Speed", Mathf.Abs(movement.magnitude * movementSpeed));
 
-        bool flipped = movement.x < 0;
+        bool flipped = movement.x > 0;
         this.transform.rotation = Quaternion.Euler(new Vector3(0f, flipped ? 180f : 0f, 0f));
     }
 

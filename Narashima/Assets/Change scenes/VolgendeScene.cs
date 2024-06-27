@@ -11,10 +11,10 @@ public class VolgendeScene : MonoBehaviour
     {
         Debug.Log("Start volgende scene");
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Tag" + other.tag);
-        if (other.tag == "NaarDialogue")
+        if (other.tag == "Player")
         {
             //Debug.Log("Werkt dit?");
             SceneManager.LoadScene("Dialogue");
