@@ -5,8 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class VolgendeScene : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+
+
+    private void Start()
     {
+        Debug.Log("Start volgende scene");
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Tag" + other.tag);
         if (other.tag == "NaarDialogue")
         {
             //Debug.Log("Werkt dit?");
