@@ -13,14 +13,8 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   dialogue:
-  - 'This, is my dialogue!!!!....
-
-    Hello!
-
-'
-  - 'This is our second dialogue!
-
-    Goodbye!!!!!!'
+  - 'Krishna & Hanuman : Hoi Narashima, we hebben het gehoord over uw broer. '
+  - 'Krishna & Hanuman : Wij willen u graag helpen hierin. Mogen wij u helpen?'
   responses:
   - responseText: Yes
     dialogueObject: {fileID: 11400000, guid: 4b00df48708beaf418d938a2c7ba6942, type: 2}

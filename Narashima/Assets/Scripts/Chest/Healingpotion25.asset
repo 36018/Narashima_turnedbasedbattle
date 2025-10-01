@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootSprite: {fileID: 21300000, guid: 37b2d238ba4f8ac4d951299b4a8f0860, type: 3}
   lootName: HealingPotion+25
-  dropChance: 1
+  dropChance: 100
